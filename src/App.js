@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { createMuiTheme } from 'material-ui/styles';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import pink from 'material-ui/colors/pink';
 import red from 'material-ui/colors/red';
 import MenuAppBar from './MenuAppBar';
-import ProductCard from './ProductCard';
+import ProductCardList from './ProductCardList';
+import ProductServices from './services/ProductServices';
 
 
 injectTapEventPlugin();
@@ -44,9 +44,9 @@ class App extends Component {
                     <MenuAppBar />
                     <div className="timeline-container">
                         <div className="timeline">
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
+                            <ProductCardList
+                                onLoadMore={ProductServices.getProducts}
+                            />
                         </div>
                     </div>
                 </div>

@@ -6,12 +6,7 @@ import BottomNav from './BottomNav';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
-import AccountCircle from 'material-ui-icons/AccountCircle';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import Drawer from 'material-ui/Drawer/Drawer';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
 import ChatIcon from 'material-ui-icons/Forum';
 
 const styles = {
@@ -49,14 +44,14 @@ class MenuAppBar extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar className={classes.toolbar}>
-            <a src='' className="App-logo" />
+            <a src='' className="App-logo"> </a>
             <Typography type="title" color="inherit" className={classes.flex}>
               Products
             </Typography>
