@@ -1,21 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { createMuiTheme } from 'material-ui/styles';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import pink from 'material-ui/colors/pink';
+import red from 'material-ui/colors/red';
+import MenuAppBar from './MenuAppBar';
+
+
+injectTapEventPlugin();
+
+const theme = createMuiTheme({
+    palette: {
+      primary: red,
+      error: {
+        main: red[500],
+      },
+      contrastThreshold: 3,
+      tonalOffset: 0.2,
+    },
+});
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    
+    constructor() {
+        super();
+        this.state = {
+            drawerOpened: false
+        };
+    };
+
+    _toggleDrawer(){
+        this.setState({
+            drawerOpened: !this.state.drawerOpened
+        });
+    }
+
+    render() {
+        return (
+            <MuiThemeProvider theme={theme}>
+                <div>
+                    <MenuAppBar />
+                </div>
+            </ MuiThemeProvider>
+        );
+    }
 }
 
 export default App;

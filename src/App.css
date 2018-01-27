@@ -3,8 +3,24 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-size: 100%;
+  background-position: 0px 0px;
+  background-image: url(https://www.salestockindonesia.com/assets/images/icons/icon-sale-stock-red-ef0f9d56.png);
+}
+
+.Bottom-Nav {
+  background-color: rgb(249, 249, 249);
+  background-image: linear-gradient(rgb(179, 179, 179), rgb(179, 179, 179) 49%, transparent 51%);
+  background-position: center top;
+  background-size: 100% 0.1rem;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 9;
 }
 
 .App-header {
