@@ -6,6 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import pink from 'material-ui/colors/pink';
 import red from 'material-ui/colors/red';
 import MenuAppBar from './MenuAppBar';
+import ProductCard from './ProductCard';
 
 
 injectTapEventPlugin();
@@ -41,6 +42,13 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
                 <div>
                     <MenuAppBar />
+                    <div className="timeline-container">
+                        <div className="timeline">
+                            <ProductCard />
+                            <ProductCard />
+                            <ProductCard />
+                        </div>
+                    </div>
                 </div>
             </ MuiThemeProvider>
         );
