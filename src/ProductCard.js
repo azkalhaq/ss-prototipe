@@ -12,6 +12,7 @@ import ShareIcon from 'material-ui-icons/Share';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Chip from 'material-ui/Chip/Chip';
 import Button from 'material-ui/Button/Button';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 const styles = theme => ({
   card: {
@@ -34,9 +35,6 @@ const styles = theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
 });
 
 class ProductCard extends React.Component {
@@ -54,14 +52,16 @@ class ProductCard extends React.Component {
         return (
         <div>
             <Card className={classes.card}>
-            <CardMedia
-                className="product-media"
-                image={this.props.image}
-                title={this.props.name}
-            />
+            <Link to={'/product/' + this.props.id}>
+                <CardMedia
+                    className="product-media"
+                    image={this.props.image}
+                    title={this.props.name}
+                />
+            </Link>
             <CardHeader
                 title={
-                    <Typography type="subheading">
+                    <Typography type="subheading" onClick={this.handleExpandClick}>
                         {this.props.name}
                         <IconButton
                             className={classnames(classes.expand, {[classes.expandOpen]: this.state.expanded,})}
@@ -99,11 +99,13 @@ class ProductCard extends React.Component {
                 <IconButton aria-label="Share">
                     <ShareIcon />
                 </IconButton>
-                <Button color="primary" className={classes.buy} raised>
+                <Button className={classes.buy} color="primary" raised>
                     Beli
                 </Button>
             </CardActions>
             </Card>
+
+            <Route path={'/product/' + this.props.id} component={ProductCard} />
         </div>
         );
     }

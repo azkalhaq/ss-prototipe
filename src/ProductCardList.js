@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import ProductCard from "./ProductCard";
 import InfiniteScroll from "react-infinite-scroller";
 import Chance from "chance";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import ProductDetailPage from "./ProductDetailPage"
 
 const chance = new Chance();
 
-class ProductCardList extends Component {
+class ProductCardList extends React.Component {
     constructor(props) {
         super(props);
     
@@ -26,7 +28,9 @@ class ProductCardList extends Component {
     }
 
     loaderElement() {
-        return <div key={chance.guid()}>Loading ...</div>;
+        return (
+            <div key={chance.guid()} className="loader"></div>
+        );
     }
 
     renderProductsList(data) {
@@ -64,8 +68,21 @@ class ProductCardList extends Component {
     }
 
     render() {
-        return (this.renderInfiniteScroll());
-      }
+        return (
+            <Router>
+                <div>
+                    <Switch>
+                        <Route
+                            exact
+                            path="/"
+                            render={() => this.renderInfiniteScroll()}
+                        />
+                        <Route path="/product/:productId" component={ProductDetailPage} />
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 ProductCardList.propTypes = {

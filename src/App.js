@@ -5,9 +5,8 @@ import { createMuiTheme } from 'material-ui/styles';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import red from 'material-ui/colors/red';
 import MenuAppBar from './MenuAppBar';
-import ProductCardList from './ProductCardList';
-import ProductServices from './services/ProductServices';
-
+import BottomNav from './BottomNav';
+import Home from './Home';
 
 injectTapEventPlugin();
 
@@ -42,13 +41,8 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
                 <div>
                     <MenuAppBar />
-                    <div className="timeline-container">
-                        <div className="timeline">
-                            <ProductCardList
-                                onLoadMore={ProductServices.getProducts}
-                            />
-                        </div>
-                    </div>
+                    <Home />
+                    <BottomNav />
                 </div>
             </ MuiThemeProvider>
         );

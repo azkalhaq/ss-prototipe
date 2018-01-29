@@ -15,7 +15,7 @@ const styles = {
 
 class BottomNav extends React.Component {
   state = {
-    value: 'recents',
+    value: 'Home',
   };
 
   handleChange = (event, value) => {
@@ -32,11 +32,11 @@ class BottomNav extends React.Component {
         showLabels
         className="Bottom-Nav"
       >
-        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Cart" icon={<CartIcon />} />
-        <BottomNavigationAction label="Sista" icon={<FaceIcon />} />
-        <BottomNavigationAction label="Menu" icon={<MenuIcon />} />
+        <BottomNavigationAction value="Home" label="Beranda" icon={<HomeIcon />} />
+        <BottomNavigationAction value="PageFavorite" label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction value="Cart" label="Cart" icon={<CartIcon />} />
+        <BottomNavigationAction value="Sista" label="Sista" icon={<FaceIcon />} />
+        <BottomNavigationAction value="Menu" label="Menu" icon={<MenuIcon />} />
       </BottomNavigation>
     );
   }
